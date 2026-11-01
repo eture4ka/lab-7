@@ -1,5 +1,9 @@
 #include <iostream>
 #include "List.h"
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
 using namespace std;
 
 // Сортування масиву списків за зростанням сум (метод бульбашки через operator>)
@@ -19,6 +23,11 @@ void printAll(const List* arr, int n) {
 }
 
 int main() {
+#ifdef _WIN32
+    // Щоб українські літери коректно відображались у консолі Windows
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+#endif
     int n;
     cout << "Введіть кількість списків: ";
     cin >> n;
